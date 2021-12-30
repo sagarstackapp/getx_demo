@@ -38,17 +38,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const ProductOverView()),
-      );
+    Future.delayed(const Duration(seconds: 2), () {
+      Get.off(() => const ProductOverView());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    printInfo();
     return Scaffold(
       body: Center(
         child: CommonImageAsset(

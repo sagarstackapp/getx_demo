@@ -6,7 +6,6 @@ import 'package:getx_demo/common/constant/strings.dart';
 import 'package:getx_demo/common/widget/common_image_assets.dart';
 import 'package:getx_demo/controller/cart_controller.dart';
 import 'package:getx_demo/controller/order_controller.dart';
-import 'package:getx_demo/screen/favourite_products_screen.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({Key? key}) : super(key: key);
@@ -21,19 +20,12 @@ class CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
-    printInfo();
     return Scaffold(
       appBar: AppBar(
         title: const Text(
           StringResources.cartTitle,
           style: TextStyle(color: ColorResources.white),
         ),
-        actions: [
-          IconButton(
-            onPressed: () => Get.to(() => const FavouriteProducts()),
-            icon: const Icon(Icons.favorite),
-          ),
-        ],
       ),
       body: GetBuilder<CartController>(
         init: CartController(),
@@ -112,7 +104,6 @@ class CartScreenState extends State<CartScreen> {
                     ),
                     direction: DismissDirection.endToStart,
                     onDismissed: (direction) {
-                      printInfo(info: '$direction');
                       cartController.removeCart(int.parse(cartController
                           .cartItemsMap.values
                           .toList()[index]

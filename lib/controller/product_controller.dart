@@ -103,13 +103,6 @@ class ProductController extends GetxController {
   }
 
   removeFavourite(int id) {
-    ProductModel productModel = items.firstWhere((element) => element.id == id);
-    items[productModel.id!].isFavourite = false;
-    for (var element in favouriteProducts) {
-      if (element.id == productModel.id) {
-        element.isFavourite = false;
-      }
-    }
     update();
   }
 }
